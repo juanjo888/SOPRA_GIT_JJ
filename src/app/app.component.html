@@ -1,378 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" href="app.component.scss" />
-  <!--<div class="container">-->
+  <!--<NAVBAR>-->
   <header
-    class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+    class="d-flex flex-wrap justify-content-center py-5 mb-4 border-bottom"
   >
-    <a
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-    >
-      <img id="icono1" src="../assets/img/def.jpg" />
+    <img
+      class="d-flex align-items-center text-dark text-decoration-none"
+      id="icono1"
+      src="../assets/img/def.jpg"
+    />
 
-      <span class="fs-4"> Logo</span>
-    </a>
-
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-dark">Nav1</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Nav2</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Nav3</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Nav4</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Nav5</a></li>
+    <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0 offset-md-6">
+      <li>
+        <a href="#" class="nav-link px-5 link-dark border-end">Home</a>
+      </li>
+      <li><a href="#" class="nav-link px-5 link-dark border-end">About</a></li>
+      <li><a href="#" class="nav-link px-5 link-dark border-end">Shop</a></li>
+      <li><a href="#" class="nav-link px-5 link-dark">Help</a></li>
     </ul>
-
-    <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-secondary me-2">Sign-up</button>
-      <button type="button" class="btn btn-outline-secondary">Login</button>
+    <div class="text-end mx-5">
+      <button type="button" class="btn btn-secondary me-2">Your Cart</button>
     </div>
   </header>
-  <!--</div>-->
+  <!--<MAIN-ASIDE>-->
+  <div class="main_aside">
+    <!--<ASIDE>-->
+    <div class="row">
+      <aside class="col-2 p-3 bg-white d-flex flex-column">
+        <input
+          type="busqueda"
+          class="form-control mb-3"
+          id="buscar"
+          placeholder="Buscar"
+        />
+        <button type="button" class="btn btn-secondary mb-3">Filter</button>
+        <button type="button" class="btn btn-secondary mb-5">
+          Reset Filter
+        </button>
+        <b>Products</b>
+        <ul class="list-unstyled my-3 ps-0">
+          <div *ngFor="let datas of data">
+            <li class="mb-3">
+              <button class="btn btn-toggle" (click)="buttonClick()">
+                {{ datas.product }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &#10095;
+              </button>
+            </li>
+          </div>
+        </ul>
+      </aside>
+      <!--<MAIN>-->
+      <main class="col-10">
+        <div class="row me-5 py-5 border-bottom">
+          <div class="col-6">
+            <img src="../assets/img/defa.png" />
+          </div>
+          <div class="col-6">
+            <h1 class="display-1 pt-5">Product title</h1>
+            <h5 class="review-count py-5 me-5 border-bottom">5 Reviews</h5>
+            <h1 class="display-5 pt-2 pb-5 me-5 border-bottom">$ 1232</h1>
+            <h4 class="pt-3 pb-5 me-5 border-bottom">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              dignissimos ea quibusdam assumenda nam illo et maxime veritatis
+              nulla! Tempore voluptatibus quae quasi esse voluptas deleniti
+              perspiciatis enim voluptatum aut.
+            </h4>
+            <button type="button" class="btn btn-secondary mx-5 my-3">
+              Delete item
+            </button>
+          </div>
+          <div></div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h1 class="display-1 text-center pt-3">Similar Products</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"><img src="../assets/img/defa.png" /></div>
 
-  <body>
-    <div class="container">
-      <div class="row align-items-center g-5 py-5">
-        <div class="col-4">
-          <h1 class="display-5 fw-bold lh-1 mb-3">
-            Responsive left-aligned hero with image
-          </h1>
-          <p class="lead">
-            Quickly design and customize responsive mobile-first sites with
-            Bootstrap, the world’s most popular front-end open source toolkit,
-            featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.
-          </p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-secondary btn-lg px-4">
-              START YOUR FREE TRIAL
-            </button>
+          <div class="col-4"></div>
+          <div class="col-2"><img src="../assets/img/defa.png" /></div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+        <div class="row">
+          <div class="col-1"><img src="../assets/img/defa.png" /></div>
+          <div class="col-2"></div>
+          <div class="col-9">
+            <h4 class="pt-3 pb-5 me-5 border-bottom">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              dignissimos ea quibusdam assumenda nam illo et maxime veritatis
+              nulla! Tempore voluptatibus quae quasi esse voluptas deleniti
+              perspiciatis enim voluptatum aut.
+            </h4>
           </div>
         </div>
-        <div class="col-8">
-          <img
-            src="../assets/img/defa.png"
-            class="d-block mx-lg-auto img-fluid"
-            alt="Bootstrap Themes"
-            width="700"
-            height="500"
-            loading="lazy"
-          />
-        </div>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 py-5">
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
+        <hr width="100px" />
+        <div class="row">
+          <div class="col-1"><img src="../assets/img/defa.png" /></div>
+          <div class="col-2"></div>
+          <div class="col-9">
+            <h4 class="pt-3 pb-5 me-5 border-bottom">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              dignissimos ea quibusdam assumenda nam illo et maxime veritatis
+              nulla! Tempore voluptatibus quae quasi esse voluptas deleniti
+              perspiciatis enim voluptatum aut.
+            </h4>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <img id="icono1" src="../assets/img/def.jpg" />
-          <div>
-            <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
-            <p>Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col-6 order-2">
-          <h2 class="featurette fw-normal lh-1">Oh yeah, it’s that good.</h2>
-          <p class="lead">
-            Another featurette? Of course. More placeholder content here to give
-            you an idea of how this layout would work with some actual
-            real-world content in place.
-          </p>
-        </div>
-        <div class="col-6 order-1">
-          <img
-            src="../assets/img/defa.png"
-            style="width: 630px; height: 380px"
-          />
-        </div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col-md-6 order-md-1">
-          <h2 class="featurette fw-normal lh-1">Oh yeah, it’s that good.</h2>
-          <p class="lead">
-            Another featurette? Of course. More placeholder content here to give
-            you an idea of how this layout would work with some actual
-            real-world content in place.
-          </p>
-        </div>
-        <div class="col-md-6 order-md-2">
-          <img
-            src="../assets/img/defa.png"
-            style="width: 630px; height: 380px"
-          />
-        </div>
-      </div>
-      <div class="row px-4 py-5" id="featured-3">
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-secondary bg-gradient fs-2 mb-3"
-            >
-              <img id="icono1" src="../assets/img/def.jpg" />
-            </div>
-            <h3 class="fs-2">Featured title</h3>
-            <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
-            </p>
-          </div>
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-secondary bg-gradient fs-2 mb-3"
-            >
-              <img id="icono1" src="../assets/img/def.jpg" />
-            </div>
-            <h3 class="fs-2">Featured title</h3>
-            <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
-            </p>
-          </div>
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-secondary bg-gradient fs-2 mb-3"
-            >
-              <img id="icono1" src="../assets/img/def.jpg" />
-            </div>
-            <h3 class="fs-2">Featured title</h3>
-            <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 class="display-4 fw-normal">What our users say</h1>
-        <p class="fs-5 text-muted">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </p>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
-          <div class="card">
-            <img id="icono1" src="../assets/img/def.jpg" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img id="icono1" src="../assets/img/def.jpg" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row py-3">
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h1 class="display-4 fw-normal">Choose your plan</h1>
-          <p class="fs-5 text-muted">
-            Chosse a plan that's right for your growing team. Simple pricing. No
-            hidden changes.
-          </p>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">BASIC</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">
-                  $9<small class="text-muted fw-light">/mo</small>
-                </h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>10 users included</li>
-                  <li>2 GB of storage</li>
-                  <li>Email support</li>
-                  <li>Help center access</li>
-                </ul>
-                <button
-                  type="button"
-                  class="w-100 btn btn-lg btn-outline-secondary"
-                >
-                  Choose this plan
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">PROFESSIONAL</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">
-                  $29<small class="text-muted fw-light">/mo</small>
-                </h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>20 users included</li>
-                  <li>10 GB of storage</li>
-                  <li>Priority email support</li>
-                  <li>Help center access</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-secondary">
-                  Choose this plan
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm border-secondary">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">ENTERPRISE</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">
-                  $99<small class="text-muted fw-light">/mo</small>
-                </h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>30 users included</li>
-                  <li>15 GB of storage</li>
-                  <li>Phone and email support</li>
-                  <li>Help center access</li>
-                </ul>
-                <button
-                  type="button"
-                  class="w-100 btn btn-lg btn-outline-secondary"
-                >
-                  Choose this plan
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 offset-4">
-        <main class="form-signin w-100 m-auto text-center">
-          <form>
-            <h2 class="fw-strong">Start your free trial</h2>
-            <h5 class="fw-normal">
-              Signup now. It's free and takes less than 3 minutes.
-            </h5>
-            <div class="form-floating">
-              <input
-                type="name"
-                class="form-control"
-                id="floatingInput"
-                placeholder="name"
-              />
-              <label for="floatingInput">Full name</label>
-            </div>
-            <div class="form-floating">
-              <input
-                type="email"
-                class="form-control"
-                id="floatingInput"
-                placeholder="name@example.com"
-              />
-              <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-              <input
-                type="password"
-                class="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-              />
-              <label for="floatingPassword">Password</label>
-            </div>
-            <button class="w-100 btn btn-lg btn-secondary" type="submit">
-              Sign in
-            </button>
-          </form>
-        </main>
-      </div>
+      </main>
     </div>
-  </body>
-
-  <div class="mt-3">
-    <footer class="text-center text-white">
-      <div class="row pt-4">
-        <section class="mb-4">
-          <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-            ><i class="fab fa-google"></i
-          ></a>
-          <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-            ><i class="fab fa-instagram"></i
-          ></a>
-        </section>
-      </div>
-      <div class="text-center text-dark">
-        <p>1717 Harrison St, San francisco, CA 94103, USA</p>
-        <p>© 2022 Your company. All rights reserved</p>
-      </div>
-    </footer>
   </div>
 </html>
