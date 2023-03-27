@@ -8,6 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ProyectoInicial';
 
+  data = {
+    image: '',
+    product: '',
+    price: 0,
+    currency: '',
+    rating: 0,
+    description: '',
+  };
+
   productos = [
     {
       id: 0,
@@ -49,7 +58,7 @@ export class AppComponent {
       ],
       reviews: [
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chico.jfif',
           name: 'Homer J. Simpson',
           raging: 5,
           opinion:
@@ -57,7 +66,7 @@ export class AppComponent {
           date: 'Ayer por la tarde, 2023',
         },
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chica.jfif',
           name: 'Marge Simpson',
           raging: 4,
           opinion:
@@ -106,7 +115,7 @@ export class AppComponent {
       ],
       reviews: [
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chica2.jfif',
           name: 'P. Escobar',
           raging: 5,
           opinion:
@@ -114,7 +123,7 @@ export class AppComponent {
           date: 'Ayer por la tarde, 2023',
         },
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chico 2.jfif',
           name: 'M.A. Nestle',
           raging: 2,
           opinion:
@@ -154,7 +163,7 @@ export class AppComponent {
       ],
       reviews: [
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chico.jfif',
           name: 'Stan Marsh',
           raging: 1,
           opinion:
@@ -162,7 +171,7 @@ export class AppComponent {
           date: 'Ayer por la tarde, 2023',
         },
         {
-          image: '../assets/img/defa.png',
+          image: '../assets/img/chico 2.jfif',
           name: 'Randy Marsh',
           raging: 5,
           opinion:
@@ -188,6 +197,9 @@ export class AppComponent {
   productSelec = this.productos[0];
   productFilter = this.productos;
   filtro: string = '';
+  filtro2: number = 0;
+
+  starCol = Array(5).fill(true);
 
   buttonClick(index: number) {
     for (let i = 0; i < this.productos.length; i++) {
@@ -199,13 +211,57 @@ export class AppComponent {
   }
 
   Buscar() {
-    this.productFilter = this.productos.filter((m) =>
-      m.product.toLowerCase().includes(this.filtro.toLowerCase())
-    );
-    this.filtro;
+    this.productFilter = this.productos.filter((filtrado) => {
+      if (
+        filtrado.product.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        filtrado.description.toLowerCase().includes(this.filtro.toLowerCase())
+      ) {
+        return filtrado;
+      } else {
+        return null;
+      }
+    });
   }
+
   Reset() {
     this.productFilter = this.productos;
     this.filtro;
   }
+  Borrar(index: number) {
+    for (let i = 0; i < this.productos.length; i++) {
+      if (index == this.productos[i].id) {
+        this.productFilter.splice(i, 1);
+        this.productSelec = this.productos[0];
+      }
+    }
+  }
+
+  // Borrar(index: number){
+  //   this.productFilter.splice(index.indexSelected, 1);
+  // }
+
+  Filtro2() {
+    this.productFilter = [];
+    for (let i = 0; i < this.productos.length; i++) {
+      if (this.filtro2 <= this.productos[i].price) {
+        this.productFilter.push(this.productos[i]);
+      }
+    }
+  }
+  infoModal(info: any) {
+    this.data = info;
+  }
 }
+
+// private BuscarYFiltrar(palabra : any)
+// return (
+//   filtrado.product.toLowerCase().includes(this.filtro.toLowerCase()) ||
+//   filtrado.description.toLowerCase().includes(this.filtro.toLowerCase())
+// ) {
+//   return filtrado;
+// } else {
+//   return null;
+// }
+
+// private Borrar()
+// this.productFilter = this.productos.length !== ? this.productos[0]

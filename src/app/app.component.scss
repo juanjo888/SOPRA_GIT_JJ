@@ -1,16 +1,11 @@
-header {
-  display: flex;
-  flex-direction: row;
-}
-
 #icono1 {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 
-* {
-  border: 1px solid black;
-}
+// * {
+//   border: 1px solid black;
+// }
 
 img {
   width: 100%;
@@ -19,4 +14,8 @@ img {
 
 footer {
   height: 200px;
+}
+
+.starCol {
+  color: orange;
 }

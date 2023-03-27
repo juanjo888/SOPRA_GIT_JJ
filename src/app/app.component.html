@@ -8,7 +8,7 @@
     <img
       class="d-flex align-items-center text-dark text-decoration-none"
       id="icono1"
-      src="../assets/img/def.jpg"
+      src="../assets/img/viajar.jpg"
     />
 
     <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0 offset-md-8">
@@ -29,12 +29,21 @@
     <div class="row">
       <aside class="col-md-2 p-3 mt-5 bg-white d-flex flex-column border-end">
         <input
+          type="number"
+          [(ngModel)]="filtro2"
+          class="form-control mb-3"
+          id="filtro2"
+          placeholder="filtro2"
+          (keyup)="Filtro2()"
+        />
+        <input
           type="text"
           [(ngModel)]="filtro"
           class="form-control mb-3"
           id="buscar"
           placeholder="Buscar"
         />
+
         <button type="button" class="btn btn-secondary mb-3" (click)="Buscar()">
           Filter
         </button>
@@ -59,16 +68,30 @@
             <img src="{{ productSelec.image }}" />
           </div>
           <div class="col-md-6">
-            <h1 class="display-1 pt-5 mx-5">{{ productSelec.product }}</h1>
-            <h5 class="pt-2 tb-5 mx-5 border-bottom"># # # # # 5 Reviews</h5>
-            <h1 class="display-5 pt-2 pb-5 mx-5 border-bottom">
+            <h1 class="display-1 pt-5 mx-5">
+              {{ productSelec.product }}
+            </h1>
+            <div class="pt-2 tb-5 mx-5">
+              <span
+                *ngFor="let star of starCol; let i = index"
+                [ngClass]="{ starCol: i < productSelec.rating }"
+                >★</span
+              >
+              &nbsp; &nbsp; &nbsp; 5 Reviews
+            </div>
+
+            <h1 class="display-5 pt-2 pb-5 mx-5 border-bottom border-top">
               {{ productSelec.price }}{{ productSelec.currency }}
             </h1>
             <h4 class="lh-lg fw-light pt-3 pb-5 mx-5 border-bottom">
               {{ productSelec.description }}
             </h4>
-            <button type="button" class="btn btn-secondary mx-5 my-3">
-              Delete item
+            <button
+              type="button"
+              class="btn btn-secondary mx-5 my-3"
+              (click)="Borrar(productSelec.id)"
+            >
+              Borrar
             </button>
           </div>
         </div>
@@ -79,11 +102,14 @@
         </div>
         <div class="row border-bottom">
           <div
-            class="col-md-6"
+            class="col-md-6 btn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
             *ngFor="let productoSim of productSelec.similarProducts"
+            (click)="infoModal(productoSim)"
           >
             <div class="row">
-              <div class="col-md-4"><img src="{{ productoSim.image }}" /></div>
+              <div class="col-md-4"><img [src]="productoSim.image" /></div>
 
               <div class="col-md-8">
                 <h1 class="display-5 mt-5 mx-5">{{ productoSim.product }}</h1>
@@ -101,7 +127,7 @@
             *ngFor="let productoRew of productSelec.reviews"
           >
             <div class="row">
-              <div class="col-md-1"><img src="{{ productoRew.image }}" /></div>
+              <div class="col-md-1"><img [src]="productoRew.image" /></div>
               <div class="col-md-2">
                 <h1 class="display-5 mt-5 mx-5">{{ productoRew.name }}</h1>
                 <h2 class="lead display-6 pt-2 mb-5 mx-5">
@@ -118,7 +144,38 @@
         </div>
       </main>
     </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              {{ data.product }}
+            </h1>
+          </div>
+          <div class="modal-body">
+            <img [src]="data.image" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <footer>
     <div class="border-top"></div>
   </footer>
