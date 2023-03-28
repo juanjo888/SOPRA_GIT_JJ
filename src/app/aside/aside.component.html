@@ -1,0 +1,33 @@
+<aside class="col-md-2 p-3 mt-5 bg-white d-flex flex-column border-end">
+  <input
+    type="number"
+    [(ngModel)]="filtro2"
+    class="form-control mb-3"
+    id="filtro2"
+    placeholder="filtro2"
+    (keyup)="filter()"
+  />
+  <input
+    type="text"
+    [(ngModel)]="filtro"
+    class="form-control mb-3"
+    id="buscar"
+    placeholder="Buscar"
+  />
+  <button type="button" class="btn btn-secondary mb-3" (click)="buscar()">
+    Filter
+  </button>
+  <button type="button" class="btn btn-secondary mb-5" (click)="reset()">
+    Reset Filter
+  </button>
+  <b class="mt-5 mx-5">Products</b>
+  <ul class="list-unstyled ps-0">
+    <div *ngFor="let producto of productFilter">
+      <li class="my-5 mx-5 border-bottom" id="espacio">
+        <button class="btn btn-toggle" (click)="buttonClick(producto)">
+          {{ producto.product }}<span>></span>
+        </button>
+      </li>
+    </div>
+  </ul>
+</aside>
