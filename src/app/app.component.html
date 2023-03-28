@@ -9,7 +9,6 @@
       id="icono1"
       src="../assets/img/viajar.jpg"
     />
-
     <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0 offset-md-8">
       <li>
         <a href="#" class="nav-link px-5 link-dark border-end">Home</a>
@@ -57,87 +56,87 @@
           </div>
         </ul>
       </aside>
-    </div>
-    <main class="col-md-10">
-      <div class="row me-5 py-5 border-bottom">
-        <div class="col-md-6">
-          <img [src]="productSelec.image" alt="src/assets/img/noimage.jpg" />
-        </div>
-        <div class="col-md-6">
-          <h1 class="display-1 pt-5 mx-5">
-            {{ productSelec.product }}
-          </h1>
-          <div class="pt-2 tb-5 mx-5">
-            <span
-              *ngFor="let star of starCol; let i = index"
-              [ngClass]="{ starCol: i < productSelec.rating }"
-              >★</span
+      <main class="col-md-10">
+        <div class="row me-5 py-5 border-bottom">
+          <div class="col-md-6">
+            <img [src]="productSelec.image" alt="src/assets/img/noimage.jpg" />
+          </div>
+          <div class="col-md-6">
+            <h1 class="display-1 pt-5 mx-5">
+              {{ productSelec.product }}
+            </h1>
+            <div class="pt-2 tb-5 mx-5">
+              <span
+                *ngFor="let star of starCol; let i = index"
+                [ngClass]="{ starCol: i < productSelec.rating }"
+                >★</span
+              >
+              &nbsp; &nbsp; &nbsp; 5 Reviews
+            </div>
+            <h1 class="display-5 pt-2 pb-5 mx-5 border-bottom border-top">
+              {{ productSelec.price }}{{ productSelec.currency }}
+            </h1>
+            <h4 class="lh-lg fw-light pt-3 pb-5 mx-5 border-bottom">
+              {{ productSelec.description }}
+            </h4>
+            <button
+              type="button"
+              class="btn btn-secondary mx-5 my-3"
+              (click)="borrar(productSelec.id)"
             >
-            &nbsp; &nbsp; &nbsp; 5 Reviews
+              Borrar
+            </button>
           </div>
-          <h1 class="display-5 pt-2 pb-5 mx-5 border-bottom border-top">
-            {{ productSelec.price }}{{ productSelec.currency }}
-          </h1>
-          <h4 class="lh-lg fw-light pt-3 pb-5 mx-5 border-bottom">
-            {{ productSelec.description }}
-          </h4>
-          <button
-            type="button"
-            class="btn btn-secondary mx-5 my-3"
-            (click)="borrar(productSelec.id)"
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="display-1 text-center pt-3">Similar Products</h1>
+          </div>
+        </div>
+        <div class="row border-bottom">
+          <div
+            class="col-md-6 btn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            *ngFor="let productoSim of productSelec.similarProducts"
+            (click)="infoModal(productoSim)"
           >
-            Borrar
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="display-1 text-center pt-3">Similar Products</h1>
-        </div>
-      </div>
-      <div class="row border-bottom">
-        <div
-          class="col-md-6 btn"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          *ngFor="let productoSim of productSelec.similarProducts"
-          (click)="infoModal(productoSim)"
-        >
-          <div class="row">
-            <div class="col-md-4"><img [src]="productoSim.image" /></div>
-
-            <div class="col-md-8">
-              <h1 class="display-5 mt-5 mx-5">{{ productoSim.product }}</h1>
-              <h2 class="lead display-6 mt-5 mb-5 mx-5">
-                {{ productoSim.price }} {{ productoSim.currency }}
-              </h2>
+            <div class="row">
+              <div class="col-md-4"><img [src]="productoSim.image" /></div>
+              <div class="col-md-8">
+                <h1 class="display-5 mt-5 mx-5">{{ productoSim.product }}</h1>
+                <h2 class="lead display-6 mt-5 mb-5 mx-5">
+                  {{ productoSim.price }} {{ productoSim.currency }}
+                </h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div
-          class="col-md-12 border-bottom"
-          *ngFor="let productoRew of productSelec.reviews"
-        >
-          <div class="row">
-            <div class="col-md-1"><img [src]="productoRew.image" /></div>
-            <div class="col-md-2">
-              <h1 class="display-5 mt-5 mx-5">{{ productoRew.name }}</h1>
-              <h2 class="lead display-6 pt-2 mb-5 mx-5">
-                {{ productoRew.date }}
-              </h2>
-            </div>
-            <div class="col-md-9">
-              <h4 class="lh-lg fw-light mx-5 my-5">
-                {{ productoRew.opinion }}
-              </h4>
+        <div class="row">
+          <div
+            class="col-md-12 border-bottom"
+            *ngFor="let productoRew of productSelec.reviews"
+          >
+            <div class="row">
+              <div class="col-md-1"><img [src]="productoRew.image" /></div>
+              <div class="col-md-2">
+                <h1 class="display-5 mt-5 mx-5">{{ productoRew.name }}</h1>
+                <h2 class="lead display-6 pt-2 mb-5 mx-5">
+                  {{ productoRew.date }}
+                </h2>
+              </div>
+              <div class="col-md-9">
+                <h4 class="lh-lg fw-light mx-5 my-5">
+                  {{ productoRew.opinion }}
+                </h4>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
 
+  </div>
     <div
       class="modal"
       id="exampleModal"
@@ -166,7 +165,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <footer>
     <div class="border-top"></div>
