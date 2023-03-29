@@ -1,84 +1,36 @@
-import { Component } from '@angular/core';
-import { PRODUCTOS } from '../datos/datos';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Producto } from '../tipos/tipos.ts/tipos';
-
 
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
-  styleUrls: ['./aside.component.scss']
+  styleUrls: ['./aside.component.scss'],
 })
 export class AsideComponent {
+  @Output() productSelecOutAside = new EventEmitter<Producto>();
+  @Output() productBuscarOutAside = new EventEmitter<string>();
+  @Output() productResetOutAside = new EventEmitter();
+  @Output() productFilterOutAside = new EventEmitter<number>();
 
-  productos = PRODUCTOS;
+  @Input() productFilter: Producto[] = [];
 
-  productSelec = this.productos[0];
-  productFilter = this.productos;
   filtro: string = '';
   filtro2: number = 0;
 
-  starCol = Array(5).fill(true);
-
-  buttonClick(producto: Producto) {
-    // for (let i = 0; i < this.productos.length; i++) {
-    //   if (index == this.productos[i].id) {
-    //     this.productSelec = this.productos[i];
-    //     console.log(index);
-    //   }
-    // }
-    this.productSelec = producto
-    // console.log(this.productSelec)
+  setProductoSeleccionado(producto: Producto) {
+    this.productSelecOutAside.emit(producto);
   }
 
-  // buttonClick(){this.product}
-
-  buscar() {
-    this.productFilter = this.productos.filter((producto) => {
-      // if (
-      //   filtrado.product.toLowerCase().includes(this.filtro.toLowerCase()) ||
-      //   filtrado.description.toLowerCase().includes(this.filtro.toLowerCase())
-      // ) {
-      //   return filtrado;
-      // } else {
-      //   return null;
-      // }
-      return (
-        producto.product.toLowerCase().includes(this.filtro.toLowerCase()) ||
-        producto.description.toLowerCase().includes(this.filtro.toLowerCase())
-      );
-    });
+  setProductoBuscado() {
+    this.productBuscarOutAside.emit(this.filtro);
   }
 
-
-  mifuncion(): Producto[] {
-    return this.productos.filter((prod) => {
-      prod.id > 1;
-    });
+  setProductoFiltrado(filtro2: number) {
+    this.productFilterOutAside.emit(filtro2);
   }
 
-  reset() {
-    this.productFilter = this.productos;
-    this.filtro = '';
+  setProductoReset(): void {
+    this.productResetOutAside.emit();
+    this.filtro2 = 0;
   }
-
-  filter(): void {
-    this.productFilter = [];
-    for (let i = 0; i < this.productos.length; i++) {
-      if (this.filtro2 <= this.productos[i].price) {
-        this.productFilter.push(this.productos[i]);
-      }
-    }
-  }
-
-
 }
-
-// private BuscarYFiltrar(palabra : any)
-// return (
-//   filtrado.product.toLowerCase().includes(this.filtro.toLowerCase()) ||
-//   filtrado.description.toLowerCase().includes(this.filtro.toLowerCase())
-// ) {
-//   return filtrado;
-// } else {
-//   return null;
-// }

@@ -7,12 +7,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-          {{ data.product }}
+        <h1 class="modal-title" id="exampleModalLabel">
+          {{ productModal.product }}
         </h1>
       </div>
       <div class="modal-body">
-        <img [src]="data.image" />
+        <img [src]="productModal.image" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

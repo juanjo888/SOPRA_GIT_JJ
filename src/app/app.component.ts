@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PRODUCTOS } from './datos/datos';
-import { Producto } from './tipos/tipos.ts/tipos';
+import { Producto, ProductoSimilar } from './tipos/tipos.ts/tipos';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { Producto } from './tipos/tipos.ts/tipos';
 export class AppComponent {
   title = 'ProyectoInicial';
 
-  data = {
+  dataModal: ProductoSimilar = {
     image: '',
     product: '',
     price: 0,
@@ -20,11 +20,44 @@ export class AppComponent {
   };
 
   productos = PRODUCTOS;
-
-  productSelec = this.productos[0];
   productFilter = this.productos;
+  productSelec = this.productos[0];
+  starCol = Array(5).fill(true);
+
   filtro: string = '';
   filtro2: number = 0;
 
-  starCol = Array(5).fill(true);
+  setProductoSeleccionado(producto: Producto) {
+    this.productSelec = producto;
+  }
+
+  setProductoBuscado(filtro: string) {
+    this.productFilter = this.productos.filter((producto) => {
+      return (
+        producto.product.toLowerCase().includes(filtro.toLowerCase()) ||
+        producto.description.toLowerCase().includes(filtro.toLowerCase())
+      );
+    });
+  }
+
+  setProductoBorrar(producto: Producto) {
+    let index = this.productos.indexOf(producto);
+    this.productos.splice(index, 1);
+    this.productFilter = this.productos;
+    this.productSelec = this.productos[0];
+  }
+
+  setProductoFiltrado(filtro2: number) {
+    this.productFilter = this.productos.filter((producto) => {
+      return producto.price <= filtro2;
+    });
+  }
+
+  setProductoReset() {
+    this.productFilter = this.productos;
+  }
+
+  infoModal(productModal: ProductoSimilar) {
+    this.dataModal = productModal;
+  }
 }

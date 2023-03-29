@@ -1,17 +1,13 @@
-import { Component } from '@angular/core';
-import { PRODUCTOS } from '../datos/datos';
-import { Producto } from '../tipos/tipos.ts/tipos';
-
-
+import { Component, Input } from '@angular/core';
+import { ProductoSimilar } from '../tipos/tipos.ts/tipos';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-
-   data = {
+  @Input() productModal: ProductoSimilar = {
     image: '',
     product: '',
     price: 0,
@@ -19,8 +15,4 @@ export class ModalComponent {
     rating: 0,
     description: '',
   };
-
-  infoModal(info: any) {
-    this.data = info;
-  }
 }

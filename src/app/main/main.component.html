@@ -1,4 +1,4 @@
-<main class="col-md-10">
+<main *ngIf="productSelec">
   <div class="row me-5 py-5 border-bottom">
     <div class="col-md-6">
       <img [src]="productSelec.image" alt="src/assets/img/noimage.jpg" />
@@ -24,7 +24,7 @@
       <button
         type="button"
         class="btn btn-secondary mx-5 my-3"
-        (click)="borrar(productSelec.id)"
+        (click)="setProductoBorrar(productSelec)"
       >
         Borrar
       </button>
