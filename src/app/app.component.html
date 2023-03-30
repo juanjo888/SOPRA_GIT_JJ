@@ -10,11 +10,14 @@
         (productBuscarOutAside)="setProductoBuscado($event)"
         (productResetOutAside)="setProductoReset()"
         (productFilterOutAside)="setProductoFiltrado($event)"
+        (comprobarFilterOutAside)="comprobarFiltro($event)"
         [productFilter]="productFilter"
+        [usandoFiltro]="usandoFiltro"
       >
       </app-aside>
       <app-main
         class="col-md-10"
+        (favorito)="comprobarFavorito($event)"
         (borradoMain)="setProductoBorrar($event)"
         (productModal)="infoModal($event)"
         [productSelec]="productSelec"

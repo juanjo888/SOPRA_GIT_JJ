@@ -9,6 +9,7 @@ import { Producto, ProductoSimilar } from '../tipos/tipos.ts/tipos';
 export class MainComponent {
   @Output() borradoMain = new EventEmitter<Producto>();
   @Output() productModal = new EventEmitter<ProductoSimilar>();
+  @Output() favorito = new EventEmitter<Producto>();
 
   @Input() productSelec: Producto | undefined;
 
@@ -20,5 +21,9 @@ export class MainComponent {
 
   infoModal(productoSim: ProductoSimilar) {
     this.productModal.emit(productoSim);
+  }
+
+  setFavoritoEmit(productSelec: Producto) {
+    this.favorito.emit(productSelec);
   }
 }

@@ -11,8 +11,10 @@ export class AsideComponent {
   @Output() productBuscarOutAside = new EventEmitter<string>();
   @Output() productResetOutAside = new EventEmitter();
   @Output() productFilterOutAside = new EventEmitter<number>();
+  @Output() comprobarFilterOutAside = new EventEmitter<number>();
 
   @Input() productFilter: Producto[] = [];
+  @Input() usandoFiltro: boolean = false;
 
   filtro: string = '';
   filtro2: number = 0;
@@ -32,5 +34,9 @@ export class AsideComponent {
   setProductoReset(): void {
     this.productResetOutAside.emit();
     this.filtro2 = 0;
+  }
+
+  comprobarFiltro() {
+    this.comprobarFilterOutAside.emit(this.filtro2);
   }
 }

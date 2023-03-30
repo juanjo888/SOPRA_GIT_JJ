@@ -26,6 +26,7 @@ export class AppComponent {
 
   filtro: string = '';
   filtro2: number = 0;
+  usandoFiltro: boolean = false;
 
   setProductoSeleccionado(producto: Producto) {
     this.productSelec = producto;
@@ -55,9 +56,27 @@ export class AppComponent {
 
   setProductoReset() {
     this.productFilter = this.productos;
+    this.comprobarFiltro(this.filtro2);
   }
 
   infoModal(productModal: ProductoSimilar) {
     this.dataModal = productModal;
+  }
+
+  comprobarFavorito(productSelec: Producto) {
+    let index = this.productos.indexOf(productSelec);
+    if (this.productos[index].favorito) {
+      this.productos[index].favorito = false;
+    } else {
+      this.productos[index].favorito = true;
+    }
+  }
+
+  comprobarFiltro(filtro2: number) {
+    if (filtro2 === 0) {
+      this.usandoFiltro = false;
+    } else {
+      this.usandoFiltro = true;
+    }
   }
 }

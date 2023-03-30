@@ -1,4 +1,4 @@
-<main *ngIf="productSelec">
+<main *ngIf="productSelec" [ngClass]="{ favoritos: productSelec.favorito }">
   <div class="row me-5 py-5 border-bottom">
     <div class="col-md-6">
       <img [src]="productSelec.image" alt="src/assets/img/noimage.jpg" />
@@ -6,13 +6,29 @@
     <div class="col-md-6">
       <h1 class="display-1 pt-5 mx-5">
         {{ productSelec.product }}
+        <span *ngIf="productSelec.favorito; else favoritoFalse"
+          ><img
+            class="btn imagenFavorito align-items-end"
+            (click)="setFavoritoEmit(productSelec)"
+            src="../assets/img/favorito.png"
+          />
+        </span>
+        <ng-template #favoritoFalse>
+          <img
+            class="btn imagenFavorito align-items-end"
+            (click)="setFavoritoEmit(productSelec)"
+            src="../assets/img/favorito (1).png"
+          />
+        </ng-template>
       </h1>
+
       <div class="pt-2 tb-5 mx-5">
-        <span
-          *ngFor="let star of starCol; let i = index"
-          [ngClass]="{ starCol: i < productSelec.rating }"
-          >★</span
-        >
+        <div class="stars-outer">
+          <div
+            class="stars-inner"
+            [style.width.%]="productSelec.rating * 20" [ngStyle]="{color: productSelec.rating < 3 ? 'red' : productSelec.rating <= 4  && productSelec.rating > 3 ? 'orange': 'yellow'}"
+          ></div>
+        </div>
         &nbsp; &nbsp; &nbsp; 5 Reviews
       </div>
       <h1 class="display-5 pt-2 pb-5 mx-5 border-bottom border-top">

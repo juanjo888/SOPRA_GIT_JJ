@@ -1,8 +1,36 @@
-.starCol {
-  color: orange;
-}
-
 img {
   width: 100%;
   height: 100%;
+}
+
+.favoritos {
+  background-color: cadetblue;
+  color: white;
+}
+
+.imagenFavorito {
+  width: 60px;
+  height: 60px;
+  float: right;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+}
+
+.stars-outer::before {
+  content: "\2605 \2605 \2605 \2605 \2605";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.stars-inner::before {
+  content: "\2605 \2605 \2605 \2605 \2605";
 }

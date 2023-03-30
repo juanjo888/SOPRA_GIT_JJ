@@ -13,11 +13,13 @@
     class="form-control mb-3"
     id="filtro2"
     placeholder="Filtrar precio"
+    (keyup)="comprobarFiltro()"
   />
   <button
     type="button"
     class="btn btn-secondary mb-3"
     (click)="setProductoFiltrado(filtro2)"
+    [ngClass]="{ darkButton: usandoFiltro, greyButton: !usandoFiltro }"
   >
     Filtrar Precio
   </button>

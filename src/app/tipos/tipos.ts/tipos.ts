@@ -7,6 +7,7 @@ export type Producto = {
   price: number;
   currency: string;
   rating: number;
+  favorito: boolean;
   description: string;
   similarProducts?: ProductoSimilar[];
   reviews?: ProductoReview[];
