@@ -1,5 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { Producto, ProductoSimilar } from '../tipos/tipos.ts/tipos';
+import { Producto, ProductoSimilar } from '../../../tipos/tipos.ts/tipos';
 
 @Component({
   selector: 'app-main',

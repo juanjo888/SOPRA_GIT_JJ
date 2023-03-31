@@ -1,0 +1,25 @@
+<!-- <app-header></app-header> -->
+<div class="main_aside">
+  <div class="row">
+    <app-aside
+      class="col-md-2"
+      (productSelecOutAside)="setProductoSeleccionado($event)"
+      (productBuscarOutAside)="setProductoBuscado($event)"
+      (productResetOutAside)="setProductoReset()"
+      (productFilterOutAside)="setProductoFiltrado($event)"
+      (comprobarFilterOutAside)="comprobarFiltro($event)"
+      [productFilter]="productFilter"
+      [usandoFiltro]="usandoFiltro"
+    >
+    </app-aside>
+    <app-main
+      class="col-md-10"
+      (favorito)="comprobarFavorito($event)"
+      (borradoMain)="setProductoBorrar($event)"
+      (productModal)="infoModal($event)"
+      [productSelec]="productSelec"
+    ></app-main>
+    <app-modal [productModal]="dataModal"></app-modal>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

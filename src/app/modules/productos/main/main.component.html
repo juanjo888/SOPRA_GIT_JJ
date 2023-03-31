@@ -26,7 +26,15 @@
         <div class="stars-outer">
           <div
             class="stars-inner"
-            [style.width.%]="productSelec.rating * 20" [ngStyle]="{color: productSelec.rating < 3 ? 'red' : productSelec.rating <= 4  && productSelec.rating > 3 ? 'orange': 'yellow'}"
+            [style.width.%]="productSelec.rating * 20"
+            [ngStyle]="{
+              color:
+                productSelec.rating < 3
+                  ? 'red'
+                  : productSelec.rating <= 4 && productSelec.rating > 3
+                  ? 'orange'
+                  : 'yellow'
+            }"
           ></div>
         </div>
         &nbsp; &nbsp; &nbsp; 5 Reviews
@@ -76,14 +84,14 @@
       *ngFor="let productoRew of productSelec.reviews"
     >
       <div class="row">
-        <div class="col-md-1"><img [src]="productoRew.image" /></div>
+        <div class="col-md-2"><img [src]="productoRew.image" /></div>
         <div class="col-md-2">
           <h1 class="display-5 mt-5 mx-5">{{ productoRew.name }}</h1>
           <h2 class="lead display-6 pt-2 mb-5 mx-5">
             {{ productoRew.date }}
           </h2>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
           <h4 class="lh-lg fw-light mx-5 my-5">
             {{ productoRew.opinion }}
           </h4>
