@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuardGuard } from './guard/guard.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'productos',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'about',
@@ -21,6 +22,22 @@ const routes: Routes = [
         (module) => module.AboutModule
       ),
   },
+  {
+    path: 'shop',
+    loadChildren: () =>
+      import('./modules/shopguard/shopguard.module').then(
+        (module) => module.ShopguardModule
+      ),
+    canActivate: [GuardGuard],
+  },
+  // {
+  //   path: 'help',
+  //   loadChildren: () =>
+  //     import('./modules/shopguard/shopguard.module').then(
+  //       (module) => module.ShopguardModule
+  //     ),
+  //   canActivate: [GuardGuard],
+  // },
 ];
 
 @NgModule({

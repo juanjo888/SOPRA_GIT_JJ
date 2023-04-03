@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GuardGuard } from '../guard/guard.guard';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+constructor(private guardos: GuardGuard){}
+
+accesoShop(){
+  this.guardos.keysiono = true;
+}
 
 }

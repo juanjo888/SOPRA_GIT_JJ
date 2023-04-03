@@ -9,19 +9,18 @@ import { ProductosModule } from './modules/productos/productos.module';
 import { AboutModule } from './modules/about/about.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ShopguardModule } from './modules/shopguard/shopguard.module';
 
 @NgModule({
-  declarations: [AppComponent,
-  HeaderComponent,
-FooterComponent
-],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     ProductosModule,
-    AboutModule
+    AboutModule,
+    ShopguardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
