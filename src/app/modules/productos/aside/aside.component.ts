@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { Producto } from '../../../tipos/tipos.ts/tipos';
+import { Producto } from '../../../interfaces/producto';
 
 @Component({
   selector: 'app-aside',

@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductosModule } from './modules/productos/productos.module';
 import { AboutModule } from './modules/about/about.module';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { ShopguardModule } from './modules/shopguard/shopguard.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -21,6 +22,7 @@ import { ShopguardModule } from './modules/shopguard/shopguard.module';
     ProductosModule,
     AboutModule,
     ShopguardModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

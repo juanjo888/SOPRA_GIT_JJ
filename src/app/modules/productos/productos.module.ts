@@ -6,6 +6,7 @@ import { AsideComponent } from './aside/aside.component';
 import { MainComponent } from './main/main.component';
 import { ModalComponent } from './modal/modal.component';
 import { GeneralComponent } from './general/general.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { GeneralComponent } from './general/general.component';
     CommonModule,
     ProductosRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
 })
 export class ProductosModule {}

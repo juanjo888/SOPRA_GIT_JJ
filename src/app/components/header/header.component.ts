@@ -4,14 +4,12 @@ import { GuardGuard } from '../guard/guard.guard';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  constructor(private guardos: GuardGuard) {}
 
-constructor(private guardos: GuardGuard){}
-
-accesoShop(){
-  this.guardos.keysiono = true;
-}
-
+  accesoShop() {
+    this.guardos.keysiono = true;
+  }
 }

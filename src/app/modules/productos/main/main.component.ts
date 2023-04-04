@@ -1,5 +1,6 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { Producto, ProductoSimilar } from '../../../tipos/tipos.ts/tipos';
+import { Producto } from '../../../interfaces/producto';
+import { ProductoSimilar } from '../../../interfaces/similar';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,7 @@ export class MainComponent {
   @Output() productModal = new EventEmitter<ProductoSimilar>();
   @Output() favorito = new EventEmitter<Producto>();
 
-  @Input() productSelec: Producto | undefined;
+  @Input() productSelec?: Producto | null;
 
   starCol = Array(5).fill(true);
 

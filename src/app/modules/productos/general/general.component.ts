@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { PRODUCTOS } from 'src/app/datos/datos';
-import { Producto, ProductoSimilar } from 'src/app/tipos/tipos.ts/tipos';
+import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/services/dataservice.service';
+import { Producto } from 'src/app/interfaces/producto';
+import { ProductoSimilar } from 'src/app/interfaces/similar';
 
 @Component({
   selector: 'app-general',
   templateUrl: './general.component.html',
   styleUrls: ['./general.component.scss'],
 })
-export class GeneralComponent {
+export class GeneralComponent implements OnInit {
   dataModal: ProductoSimilar = {
     image: '',
     product: '',
@@ -17,14 +18,36 @@ export class GeneralComponent {
     description: '',
   };
 
-  productos = PRODUCTOS;
+  productos: Producto[] = [];
   productFilter = this.productos;
-  productSelec = this.productos[0];
+  productSelec: Producto | null = this.productos[0];
   starCol = Array(5).fill(true);
 
   filtro: string = '';
   filtro2: number = 0;
   usandoFiltro: boolean = false;
+
+  constructor(private dataService: DataserviceService) {}
+
+  ngOnInit() {
+    // this.productos = this.dataService.datos;
+    // this.productSelec = this.dataService.getDatoSeleccionado();
+    // this.productFilter = this.dataService.datos;
+    // this.productSelec.date.getDate();
+    // console.log(this.productos)
+    this.dataService.$products.subscribe({
+      next: (response) => {
+        this.productos = response;
+        this.productFilter = this.productos;
+        this.productSelec = this.productFilter[0];
+        console.log(response);
+      },
+      error: () => {},
+      complete: () => {
+        console.log('Terminado');
+      },
+    });
+  }
 
   setProductoSeleccionado(producto: Producto) {
     this.productSelec = producto;
