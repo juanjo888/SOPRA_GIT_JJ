@@ -30,6 +30,14 @@ const routes: Routes = [
       ),
     canActivate: [GuardGuard],
   },
+  {
+    path: 'favorites',
+    loadChildren: () =>
+      import('./modules/favorites/favorites.module').then(
+        (module) => module.FavoritesModule
+      ),
+  },
+
   // {
   //   path: 'help',
   //   loadChildren: () =>

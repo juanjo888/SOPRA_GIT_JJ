@@ -7,14 +7,21 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataserviceService {
-  public $products: BehaviorSubject<Producto[]> = new BehaviorSubject<
+
+  constructor(private http: HttpClient) {}
+
+
+  $products: BehaviorSubject<Producto[]> = new BehaviorSubject<
     Producto[]
   >([]);
+
+  $productsFavorites: BehaviorSubject<Producto[]> = new BehaviorSubject<
+  Producto[]
+>([]);
 
   // private _datos: Producto[] = [];
   // private _datosSelected: Producto | null = null;
 
-  constructor(private http: HttpClient) {}
 
   // get datos(): Producto[] {
   //   return this._datos;
@@ -32,22 +39,33 @@ export class DataserviceService {
   //   this._datosSelected = newdato;
   // }
 
+
+
   getDataProduct() {
     const url = './assets/data/data.json';
     this.http.get<Producto[]>(url).subscribe({
       next: (response) => {
         if (!response) return;
+        this.$products.next(response);
         // const firstIndex = 0;
         // this._datos = response;
         // this._datosSelected = response[firstIndex];
-        this.$products.next(response);
+
       },
-      error: (error) => {},
+      error: (error) => {
+        console.log('Error');
+      },
       complete: () => {
         console.log('Terminado');
       },
     });
   }
+
+setGuardarFavoritos(productsFavorites: Producto[]) {
+  this.$productsFavorites.next(productsFavorites);
+}
+
+
 
   // private mostrarProducto(response: Producto[]) {
   //   if (!response) return;

@@ -13,7 +13,7 @@
     </app-aside>
     <app-main
       class="col-md-10"
-      (favorito)="comprobarFavorito($event)"
+      (favorito)="guardarFavoritos($event)"
       (borradoMain)="setProductoBorrar($event)"
       (productModal)="infoModal($event)"
       [productSelec]="productSelec"

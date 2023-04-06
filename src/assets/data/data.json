@@ -40,14 +40,14 @@
         "name": "Homer J. Simpson",
         "rating": 5,
         "opinion": "Fui a Paris dos veces en mi vida, y sin duda es la ciudad que mas me gusta del mundo, desde sus calles, su luz, su arquitectura, magnificos museos, atracciones todo el año...nunca te va a defraudar pasar tus dias en Paris, los bares y restaurantes son perfectos, y sus boutiques son una muestra perfecta del glamour parisino. En sus calles se respira arte, historia y romanticismo.¿que recomendaria?, no pueden pasar por Paris sin darse una vuelta por la orilla del Sena, hasta llegar al museo Orsy (un museo precioso en su arquitectura como en las obras que engalanan sus salas), luego una relajada comida en alguno de los preciosos bistro que abundan en la ciudad, contemplar las vistas de Paris desde Mont Matre, o tomar un delicioso cocktail en el mejor hotel de Paris (y uno de los mas emblematicos del mundo), el Ritz. Si amas la historia, una visita a la Concergerie, te transportara a los ultimos dias de la reina Maria Antonieta. Aunque si te sobra algun dia, es impensable no pasar el dia en Versailles, visitando el palacio, los Triagnones, y por que no, hacer un picnic en los preciosos jardines de Versailles, donde podras pasar una tarde de ensueño, explorando sus recovecos y preciosas fuentes; y hasta podras alquilar una bici alli mismo, para que el paseo sea inolvidable....Podria seguir hablando de este maravilloso destino durante horas, me resulta inspirador y de una belleza sin parangon. Que lo disfruten tanto como yo lo hice, y sin duda, seguire haciendo!!!!.",
-        "date": "18-05-2023 18:30"
+        "date": "08-05-2023 18:30"
       },
       {
         "image": "../assets/img/chica.jfif",
         "name": "Marge Simpson",
         "rating": 4,
         "opinion": "Yo estuve tan sólo cinco días y no es suficiente para ver todo lo que allí te espera. Es una ciudad muy cómoda para caminar por ella, al menos en agosto, pues tuve la suerte de que los días erán cálidos, ni frío ni calor, nada de lluvia y nada de sol. Por ponerle un pero, si quieres comer comida francesa y buena tienes que pagar mucho dinero, los restaurantes más o menos económicos tienen una comida malísima. La próxima vez que vaya como en restaurantes italianos o en MacDonalds. Fui a París en coche desde Girona pasando por Marsella, Lyon, etc,... y volví a Girona por los valles del Loira, Carcassone, etc,... una semana para ir y otra para volver además de los días que estuve en París y solamente comía bien cuando iba a los restaurantes caros, pero caros de verdad. Al final decidí que era mejor adelgazar yo que mi bolsillo y volví a España con 3 kilos menos. Lo que nunca, en vacaciones bajar de peso. Ahora, Francia entera es preciosa, los paisajes, los castillos, las playas a las que fui, las montañas, etc,.... volveré aunque tenga que comer gusanos.",
-        "date": "30-05-2023 11:15"
+        "date": "10-05-2023 11:15"
       }
     ]
   },
@@ -92,14 +92,14 @@
         "name": "P. Escobar",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "date": "18-10-2023 08:40"
+        "date": "08-10-2023 08:40"
       },
       {
         "image": "../assets/img/chico 2.jfif",
         "name": "M.A. Nestle",
         "rating": 2,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
-        "date": "20-08-2023 10:12"
+        "date": "03-08-2023 10:12"
       }
     ]
   },
@@ -136,14 +136,14 @@
         "name": "Stan Marsh",
         "rating": 1,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "date": "13-05-2023 12:55"
+        "date": "12-05-2023 12:55"
       },
       {
         "image": "../assets/img/chico 2.jfif",
         "name": "Randy Marsh",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
-        "date": "21-02-2024 17:05"
+        "date": "01-02-2024 17:05"
       }
     ]
   },

@@ -1,26 +1,42 @@
-<header class="d-flex flex-wrap justify-content-center py-5 mb-4 border-bottom">
-  <img
-    class="d-flex align-items-center text-dark text-decoration-none"
-    id="icono1"
-    src="../assets/img/viajar.jpg"
-  />
-  <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0 offset-md-8">
-    <li>
-      <a routerLink="/productos" class="nav-link px-5 link-dark border-end"
-        >Home</a
+<header>
+  <div class=" row d-flex flex-wrap justify-content-center py-5 px-5 border-bottom">
+    <div class="col-md-2">
+      <img
+        class="d-flex align-items-center text-dark text-decoration-none"
+        id="icono1"
+        src="../assets/img/viajar.jpg"
+      />
+    </div>
+    <div class="col-md-8">
+      <ul
+        class="nav justify-content-end"
       >
-    </li>
-    <li>
-      <a routerLink="/about" class="nav-link px-5 link-dark border-end"
-        >About</a
-      >
-    </li>
-    <li>
-      <a routerLink="/shop" class="nav-link px-5 link-dark border-end">Shop</a>
-    </li>
-    <li><a routerLink="/help" class="nav-link px-5 link-dark">Help</a></li>
-  </ul>
-  <div class="text-end mx-5">
-    <button (click)="accesoShop()" type="button" class="btn btn-secondary me-2">Acceso Shop</button>
+        <li>
+          <a routerLink="/productos" class="nav-link px-5 link-dark border-end"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a routerLink="/about" class="nav-link px-5 link-dark border-end"
+            >About</a
+          >
+        </li>
+        <li>
+          <a routerLink="/shop" class="nav-link px-5 link-dark border-end"
+            >Shop</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/favorites"
+            class="nav-link px-5 link-dark"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2 text-end">
+      <button (click)="accesoShop()" type="button" class="btn btn-secondary me-2">Login</button>
+    </div>
   </div>
 </header>

@@ -10,7 +10,8 @@ import { AboutModule } from './modules/about/about.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ShopguardModule } from './modules/shopguard/shopguard.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DateInterceptor } from './interceptor/date.interceptor';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ShopguardModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: DateInterceptor, multi: true },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

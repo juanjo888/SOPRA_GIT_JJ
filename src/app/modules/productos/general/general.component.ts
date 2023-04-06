@@ -20,6 +20,7 @@ export class GeneralComponent implements OnInit {
 
   productos: Producto[] = [];
   productFilter = this.productos;
+  productsFavorites: Producto[] = [];
   productSelec: Producto | null = this.productos[0];
   starCol = Array(5).fill(true);
 
@@ -93,11 +94,30 @@ export class GeneralComponent implements OnInit {
     }
   }
 
+  guardarFavoritos(productSelec: Producto) {
+    if (this.productsFavorites.includes(productSelec)) {
+      this.eliminarFavorito();
+    } else {
+      this.productsFavorites.push(productSelec);
+    }
+    this.comprobarFavorito(productSelec);
+    this.dataService.setGuardarFavoritos(this.productsFavorites);
+  }
+
   comprobarFiltro(filtro2: number) {
     if (filtro2 === 0) {
       this.usandoFiltro = false;
     } else {
       this.usandoFiltro = true;
     }
+  }
+
+  private eliminarFavorito() {
+    this.productsFavorites.splice(
+      this.productsFavorites.findIndex((product) => {
+        return product.id === this.productSelec?.id;
+      }),
+      1
+    );
   }
 }

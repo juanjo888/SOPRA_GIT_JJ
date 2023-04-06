@@ -1,0 +1,12 @@
+<div>
+<div class="row row-cols-1 row-cols-md-2 mx-5 my-5 g-4">
+  <div class="col" *ngFor="let productFavorite of productsFavorites">
+    <div class="card">
+      <img [src]="productFavorite.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h1 class="card-title text-center my-5 bold" ><b>{{ productFavorite.product }}</b></h1>
+        <p class="card-text">{{ productFavorite.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
