@@ -5,11 +5,10 @@ import { DataserviceService } from 'src/app/services/dataservice.service';
 @Component({
   selector: 'app-general',
   templateUrl: './general.component.html',
-  styleUrls: ['./general.component.scss']
+  styleUrls: ['./general.component.scss'],
 })
 export class GeneralComponent {
-
-  productsFavorites: Producto [] = [];
+  productsFavorites: Producto[] = [];
 
   constructor(private dataService: DataserviceService) {}
 
@@ -25,5 +24,14 @@ export class GeneralComponent {
         console.log('Terminado');
       },
     });
+  }
+  setFavoritoBorrar(productSelec: Producto) {
+    this.productsFavorites.splice(
+      this.productsFavorites.findIndex((product) => {
+        return product.id === productSelec.id;
+      }),
+      1
+    );
+    productSelec.favorito = false;
   }
 }
