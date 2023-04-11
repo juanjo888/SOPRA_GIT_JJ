@@ -95,21 +95,18 @@ export class GeneralComponent implements OnInit {
   }
 
   guardarFavoritos(productSelec: Producto) {
-    if (this.productsFavorites.includes(productSelec)) {
-      this.eliminarFavorito();
-    } else {
-      this.productsFavorites.push(productSelec);
-    }
-    this.comprobarFavorito(productSelec);
-    this.dataService.setGuardarFavoritos(this.productsFavorites);
+    // if (this.productsFavorites.includes(productSelec)) {
+    //   this.eliminarFavorito();
+    // } else {
+    //   this.productsFavorites.push(productSelec);
+    // }
+    // this.comprobarFavorito(productSelec);
+    // this.dataService.setGuardarFavoritos(this.productsFavorites);
+    productSelec.favorito = !productSelec.favorito;
   }
 
   comprobarFiltro(filtro2: number) {
-    if (filtro2 === 0) {
-      this.usandoFiltro = false;
-    } else {
-      this.usandoFiltro = true;
-    }
+    this.usandoFiltro = filtro2 !== 0
   }
 
   private eliminarFavorito() {

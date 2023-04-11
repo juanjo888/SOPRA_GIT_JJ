@@ -13,25 +13,30 @@ export class GeneralComponent {
   constructor(private dataService: DataserviceService) {}
 
   ngOnInit() {
-    this.dataService.$productsFavorites.subscribe({
-      next: (response) => {
-        this.productsFavorites = response;
-
-        console.log(response);
-      },
-      error: () => {},
-      complete: () => {
-        console.log('Terminado');
+    this.dataService.$products.subscribe({
+      next: (response: Producto[]) => {
+        this.productsFavorites = this.getFavoriteProducts(response);
       },
     });
   }
   setFavoritoBorrar(productSelec: Producto) {
-    this.productsFavorites.splice(
-      this.productsFavorites.findIndex((product) => {
-        return product.id === productSelec.id;
-      }),
-      1
+    const indiceProducto: number = this.encontrarIndiceProducto(
+      productSelec.id
     );
+    this.productsFavorites.splice(indiceProducto, 1);
     productSelec.favorito = false;
+  }
+  encontrarIndiceProducto(id: number): number {
+    return this.productsFavorites.findIndex((product) => {
+      return product.id === id;
+    });
+  }
+
+  private getFavoriteProducts(products: Producto[]): Producto[] {
+    const productosFiltrados = products.filter((product) => {
+      return product.favorito;
+    });
+
+    return productosFiltrados || [];
   }
 }
