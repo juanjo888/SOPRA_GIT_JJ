@@ -37,6 +37,13 @@ const routes: Routes = [
         (module) => module.FavoritesModule
       ),
   },
+  {
+    path: 'form',
+    loadChildren: () =>
+      import('./modules/form/form.module').then(
+        (module) => module.FormModule
+      ),
+  },
 
   // {
   //   path: 'help',

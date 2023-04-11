@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ShopguardModule } from './modules/shopguard/shopguard.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DateInterceptor } from './interceptor/date.interceptor';
+import { FormModule } from './modules/form/form.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -22,10 +23,13 @@ import { DateInterceptor } from './interceptor/date.interceptor';
     BrowserAnimationsModule,
     ProductosModule,
     AboutModule,
+    FormModule,
     ShopguardModule,
     HttpClientModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: DateInterceptor, multi: true },],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: DateInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <h1 class="mt-5"><b>CREA TU VIAJE</b></h1>
+      <p class="lead mt-5">Usa el formulario para crear un nuevo viaje</p>
+      <div class="col-md-8">
+        <h2 class="mt-5"><b>Info del viaje</b></h2>
+        <form
+          class="mt-3"
+          (ngSubmit)="sendUserInfo()"
+          [formGroup]="userForm"
+          autocomplete="off"
+        >
+          <div class="form-group mb-3 col-md-6">
+            <h3>Introduce aqui tu nuevo destino:</h3>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Destino"
+              formControlName="product"
+            />
+            <small
+              *ngIf="validateField('product')"
+              class="form-text text-danger"
+              >El campo no puede estar vacio</small
+            >
+          </div>
+
+          <div class="form-group mb-3 col-md-6">
+            <h3>Introduce aqui el precio del viaje:</h3>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Precio"
+              formControlName="price"
+            />
+            <small *ngIf="validateField('price')" class="form-text text-danger"
+              >El campo no puede estar vacio</small
+            >
+          </div>
+
+          <div class="form-group mb-3">
+            <h3>Introduce aqui una descripción del viaje:</h3>
+            <textarea
+              type="text"
+              class="form-control"
+              placeholder="Descripcion"
+              formControlName="description"
+            ></textarea>
+            <small
+              *ngIf="validateField('description')"
+              class="form-text text-danger"
+              >El campo no puede estar vacio</small
+            >
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
