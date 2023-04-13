@@ -1,8 +1,8 @@
 <div class="container my-5 border border-2 rounded-3">
   <div class="row">
-    <div class="col-md-10 offset-1">
+    <div class="col-md-12 mx-3">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 border-end p-4">
           <h1 class="mt-5"><b>CREA TU VIAJE</b></h1>
           <p class="lead mt-5">Usa el formulario para crear un nuevo viaje</p>
           <h2 class="mt-5"><b>Info del viaje</b></h2>
@@ -79,17 +79,21 @@
             </div>
           </form>
         </div>
-        <div class="col-md-4">
-          <div class="mt-5 pb-5 border-bottom">
+        <div class="col-md-4 p-4">
+          <div class="mt-5 pb-5">
             <h1><b>VIAJES SIMILARES</b></h1>
+            <hr>
           </div>
-
-          <div class="pt-5 m-5">
-            <input
-              type="checkbox"
-              formControlName="similarProducts"
-              value="hola"
-            />
+          <div class="row" *ngFor="let producto of productos; let index = index">
+            <div class="col-12">
+              <div>
+                <img [src]="producto.image" alt="" class="viajesSimilaresImage">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label text-center" for="flexCheckChecked">
+                    {{producto.product}}
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
